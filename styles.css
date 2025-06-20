@@ -16,17 +16,17 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Uma fonte mais moderna e amigável */
+    font-family: 'Poppins', sans-serif; 
     background-color: var(--light-bg);
     color: var(--text-color);
     line-height: 1.6;
 }
 
-/* Cabeçalho de Navegação */
+
 nav {
     display: flex;
     justify-content: center;
-    gap: 3rem; /* Aumenta o espaço entre os links */
+    gap: 3rem; /
     background-color: var(--primary-color);
     padding: 1.2rem 1rem; /* Um pouco mais de padding */
     position: fixed;
@@ -60,7 +60,7 @@ nav a:hover {
 
 .inicio1 h1 {
     font-size: 2.8rem; /* Aumenta o tamanho do título */
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     font-weight: 700;
     line-height: 1.2;

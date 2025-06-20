@@ -1,6 +1,6 @@
 async function carregarEventosDaPlanilha() {
     const eventosDiv = document.getElementById("eventos");
-    eventosDiv.innerHTML = "<p>Carregando eventos...</p>"; // Feedback de carregamento
+    eventosDiv.innerHTML = "<p>Carregando eventos...</p>";
 
     try {
         const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vThJFYlU0KduwGTipk0Wk_CILMrQsziQXsznN6Fuk07cDV2lFpJ9LA1-0q3_OrV0QcjhreXNaXWROWN/pub?output=csv');
@@ -10,13 +10,12 @@ async function carregarEventosDaPlanilha() {
         }
 
         const data = await response.text();
-        const linhas = data.split("\n").slice(1); // Ignora o cabeçalho
-        eventosDiv.innerHTML = ""; // Limpa a mensagem de carregamento
+        const linhas = data.split("\n").slice(1); 
+        eventosDiv.innerHTML = ""; 
 
         const hoje = new Date();
-        hoje.setHours(0, 0, 0, 0); // Define a hora para 00:00:00 para comparação correta
+        hoje.setHours(0, 0, 0, 0); 
 
-        let eventosEncontrados = false; // Flag para verificar se há eventos futuros
 
         linhas.forEach(linha => {
             const colunas = linha.split(",");
@@ -29,9 +28,8 @@ async function carregarEventosDaPlanilha() {
                 const local = colunas[4].trim();
                 const descricao = colunas[5].trim();
                 const contato = colunas[6].trim();
-                const linkImagem = colunas[7].trim(); // Assumindo que a imagem está na coluna 8 (índice 7)
+                const linkImagem = colunas[7].trim(); 
 
-                // Tratamento robusto da data: DD/MM/AAAA ou MM/DD/AAAA
                 let dataDoEvento = null;
                 const partesData = dataEventoStr.split('/');
                 if (partesData.length === 3) {
